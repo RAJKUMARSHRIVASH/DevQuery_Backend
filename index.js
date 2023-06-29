@@ -66,7 +66,7 @@ app.get("/auth/facebook/callback",
     });
 
 app.get("/",(req,res)=>{
-    app.use(express.static(path,join(__dirname,"../","frontend")));
+    app.use(express.static(path.join(__dirname,"../","frontend")));
     res.sendFile(path.resolve(__dirname,"../","frontend","index.html"));
 })
 
