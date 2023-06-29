@@ -35,13 +35,13 @@ app.get('/auth/google',
 
 app.get('/auth/google/callback',
     passport.authenticate('google', {
-        successRedirect: "https://devquery.netlify.app/",
+        successRedirect: `https://devquery.netlify.app/`,
         failureRedirect: 'https://devquery.netlify.app/html/login.html',
         session: false
     }),
     function (req, res) {
         // Successful authentication, redirect home.
-        console.log(req.user)
+        console.log(req)
         res.json({ "user": req.user })
 
     });
