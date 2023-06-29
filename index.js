@@ -2,7 +2,7 @@
 const express = require("express");
 const app = express();
 app.use(express.json());
-
+const jwt = require("jsonwebtoken");
 //-----------dotenv-----------//
 require('dotenv').config();
 
@@ -41,9 +41,10 @@ app.get('/auth/google/callback',
     }),
     function (req, res) {
         // Successful authentication, redirect home.
-        console.log(req)
-        res.json({ "user": req.user })
 
+        const token = jwt.sign({ userID: req.user._id, name: req.user.name }, process.env.key)
+
+        res.redirect(`/?name=${req.user.name}&token=${token}`)
     });
 
 //----------------Facebook Oauth----------//
