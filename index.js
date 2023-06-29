@@ -65,10 +65,10 @@ app.get("/auth/facebook/callback",
         res.redirect("https://devquery.netlify.app/")
     });
 
-app.get("/",(req,res)=>{
-    app.use(express.static(path.join(__dirname,"../","frontend")));
-    res.sendFile(path.resolve(__dirname,"../","frontend","index.html"));
-})
+// app.get("/",(req,res)=>{
+//     app.use(express.static(path.join(__dirname,"../","frontend")));
+//     res.sendFile(path.resolve(__dirname,"../","frontend","index.html"));
+// })
 
 //---------server------------//
 app.listen(process.env.port, async () => {
