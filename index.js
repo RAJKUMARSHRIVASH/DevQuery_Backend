@@ -35,7 +35,7 @@ app.get('/auth/google',
 
 app.get('/auth/google/callback',
     passport.authenticate('google', {
-        successRedirect: `https://devquery.netlify.app/`,
+        // successRedirect: `https://devquery.netlify.app/`,
         failureRedirect: 'https://devquery.netlify.app/html/login.html',
         session: false
     }),
@@ -44,7 +44,7 @@ app.get('/auth/google/callback',
 
         const token = jwt.sign({ userID: req.user._id, name: req.user.name }, process.env.key)
 
-        res.redirect(`/?name=${req.user.name}&token=${token}`)
+        res.redirect(`https://devquery.netlify.app?name=${req.user.name}&token=${token}`)
     });
 
 //----------------Facebook Oauth----------//
